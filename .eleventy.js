@@ -1,4 +1,13 @@
 module.exports = function(eleventyConfig) {
+  // Markdownの改行を<br>タグに変換する設定
+  const markdownIt = require("markdown-it");
+  const md = markdownIt({
+    html: true,
+    breaks: true,  // 改行を<br>タグに変換
+    linkify: true
+  });
+  eleventyConfig.setLibrary("md", md);
+
   // CSSとJSと画像をそのままコピー
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/js");
