@@ -462,7 +462,7 @@ ul {
 .footer-nav {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  align-items: center;
   margin-bottom: 20px;
   font-size: 14px;
   flex-wrap: wrap;
@@ -471,6 +471,15 @@ ul {
 .footer-nav a {
   color: #fff;
   transition: opacity 0.3s;
+  padding: 0 12px;
+  position: relative;
+}
+
+.footer-nav a:not(:last-child)::after {
+  content: "|";
+  position: absolute;
+  right: -2px;
+  color: #fff;
 }
 
 .footer-nav a:hover {
@@ -509,6 +518,14 @@ ul {
   .footer-nav {
     flex-direction: column;
     gap: 12px;
+  }
+
+  .footer-nav a {
+    padding: 0;
+  }
+
+  .footer-nav a:not(:last-child)::after {
+    content: none;
   }
 }
 

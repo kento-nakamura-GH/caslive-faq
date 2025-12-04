@@ -13,6 +13,11 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/js");
   eleventyConfig.addPassthroughCopy("src/images");
 
+  // HTMLファイル（利用規約、プライバシーポリシー等）をそのままコピー
+  eleventyConfig.addPassthroughCopy({"src/privacy-policy.html": "privacy-policy.html"});
+  eleventyConfig.addPassthroughCopy({"src/payment-act.html": "payment-act.html"});
+  eleventyConfig.addPassthroughCopy({"src/terms.html": "terms.html"});
+
   // FAQコレクションを作成
   eleventyConfig.addCollection("faq", function(collectionApi) {
     return collectionApi.getFilteredByGlob("src/faq/*.md").sort((a, b) => {
